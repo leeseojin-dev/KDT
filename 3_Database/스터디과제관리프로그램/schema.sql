@@ -12,12 +12,12 @@ create table subjects(
 
 -- 과제 테이블
 create table tasks(
-	task_id int auto_increment primary key, 
+    task_id int auto_increment primary key, 
     subject_id int not null,
     title varchar(100) not null,
-    content text not null,
-    priority varchar(10),
-    status varchar(10),
+    content text,
+    priority varchar(10) not null,
+    status varchar(10) not null,
     due_date date,
     created_at datetime default now(),
     
@@ -60,3 +60,4 @@ create table task_memos(
     foreign key (task_id) references tasks(task_id)
 );
 
+-- drop database study_manager; 
