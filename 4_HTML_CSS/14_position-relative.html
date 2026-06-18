@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>position - relative</title>
+    <style>
+        #box1 {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            background-color: deeppink;
+            top: 30px;      /* 원래 놓여진 곳에서 30px 움직이는 것 */
+            left: 30px;
+            z-index: 10;    /* 숫자가 클수록 다른 요소들보다 앞에 위치*/
+        }
+
+        #box2 {
+            position: relative;            
+            width: 150px;
+            height: 150px;
+            background-color: deepskyblue;
+            top:-20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        position
+        HTML 요소를 문서의 기본 흐름에서 어떻게 배치할지 결정하는 CSS 속성으로, 요소의 위치 기준과 이동 방식을 제어
+
+        position: static
+        모든 HTML 요소의 기본 위치 지정 방식으로, 요소가 문서의 일반적인 흐름에 따라 위에서 아래, 왼쪽에서 오른쪽 순서대로 배치됨
+
+        position: relative
+        요소를 문서의 일반적인 흐름에 두면서, top/left/right/bottom 속성을 이용해 자기 자신의 원래 위치를 기준으로 이동시키는 위치 지정 방식임. 
+
+        static과 relative 차이점 : static일 때는 절대 요소가 겹칠 일이 없음. relative는 겹칠 수 있음. relative는 위치를 조절할 수 있음
+
+        z-index
+        CSS에서 요소들이 화면에서 겹칠 때 어떤 요소를 위에 표시할지 결정하는 속성으로, 값이 클수록 더 위에 배치됨. 인덱스가 겹치지 않도록 명확하게 지정할것. (형제 태그끼리)
+    -->
+
+    <div id="box1">박스 1</div>
+    <div id="box2">박스 2</div>
+</body>
+</html>
+
+<!-- 
+    * #box${박스 $}*2     emmet 단축키
+-->

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3단 레이아웃</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 900px;
+            margin: 20px auto;
+            border: 2px solid #000;
+        }
+        header, footer {
+            padding: 20px;
+            border: 2px dotted #000;
+            margin: 20px;
+            background-color: antiquewhite;
+        }
+        main {
+            padding: 5px;
+            border: 2px solid #000;
+            margin: 20px;
+            background-color: gray;
+        }
+        .left {
+            width: 10%;
+            height: 300px;
+            padding: 20px;
+            border: 2px solid #000;
+            float: left;
+            background-color: indianred;
+        }
+        .center {
+            width: 75%;
+            height: 300px;
+            padding: 20px;
+            margin: 0 20px;
+            border: 2px solid #000;
+            float: left;
+            background-color: orange;
+        }
+        .right {
+            width: 10%;
+            height: 300px;
+            padding: 20px;
+            border: 2px solid #000;
+            float: right;
+            background-color: yellowgreen;
+        }
+        .clear {
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            헤더 영역
+        </header>
+        <main>
+            <section class="left">
+                왼쪽 컨텐츠 영역
+            </section>
+            <section class="center">
+                가운데 컨텐츠 영역
+            </section>
+            <section class="right">
+                오른쪽 컨텐츠 영역
+            </section>
+            <div class="clear"></div>
+        </main>
+        <footer>
+            푸터 영역
+        </footer>
+    </div>
+</body>
+</html>

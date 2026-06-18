@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>표</title>
+    <style>
+        table {
+            width: 600px;
+            border-collapse: collapse;
+        }
+        thead {
+            background-color: deepskyblue;
+            color: white;
+        }
+        tbody td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+        tbody tr:hover {
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <table border="1" width="50%">
+        <tr>
+            <td colspan="2">1</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td rowspan="2">5</td>
+            <td>6</td>
+        </tr>
+        <tr>
+            <!-- <td>7</td> -->
+            <td>8</td>
+        </tr>
+    </table>
+    <hr>
+    <table>
+        <thead>
+            <tr>
+                <th>이름</th>
+                <th>과목</th>
+                <th>점수</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="2">김사과</td>
+                <td>HTML</td>
+                <td>95</td>
+            </tr>
+            <tr>
+                <td>CSS</td>
+                <td>90</td>
+            </tr>
+            <tr>
+                <td>반하나</td>
+                <td>JavaScript</td>
+                <td>88</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
+
+<!-- 
+    table : 전체 테이블. 
+    tr : 행
+    td : 하나의 셀
+    thead : 테이블 머리 부분
+    tbody : 테이블 바디 부분
+    th : 제목 셀. 두껍게, 가운데 정렬
+    table 속성 (html에서 테이블은 css로 꾸미는 것을 권장. table속성 권장하지 않음)
+        border : 테두리
+        width : 너비. px, % 사용 가능
+    colspan : 행 셀 합치기 (colspan="2" 셀 2개를 합치겠음)
+    rowspan : 열 셀 합치기
+    그다음에 내부 style 시트 작성
+    border-collapse: collapse      : 테두리가 2줄로 이루어져있는데 그것을 합쳐줌
+-->
