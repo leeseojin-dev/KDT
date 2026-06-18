@@ -48,6 +48,21 @@ class StudyDAO:
             db.rollback()
         finally:
             db.close()
+    
+    def select_subject_by_id(self, subject_id):
+        db = get_connection()
+        try:
+            cur = db.cursor(MySQLdb.cursors.DictCursor)
+            sql = "select * from subjects where subject_id = %s"
+            cur.execute(sql, (subject_id))
+            row = cur.fetchone()
+            cur.close()
+            return row
+
+        except Exception as e:
+            print(f"오류 발생: {e}")
+        finally:
+            db.close()
 
     # 과제
     def insert_task(self, task):
