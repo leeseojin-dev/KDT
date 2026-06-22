@@ -160,7 +160,7 @@
 
         class Account {
             static accountCount = 0         // 클래스로 접근하니까 모든 계좌에서 공용 사용가능한 속성
-            #blance = 0                 // 외부 접근 불가
+            #balance = 0                 // 외부 접근 불가
 
             constructor(owner) {
                 this.owner = owner
@@ -168,7 +168,7 @@
             }
 
             get balance() {             // 변수명과 일치
-                return this.#blance
+                return this.#balance
             }
 
             set balance(value) {
@@ -177,14 +177,14 @@
 
             deposit(amount) {       // 입금
                 if(amount > 0) {
-                    this.#blance += amount
+                    this.#balance += amount
                     console.log(`${this.owner}님, ${amount}원 입금되었습니다.`)
                 }
             }
 
             withdraw(amount) {      // 출금
-                if(amount <= this.#blance) {
-                    this.#blance -= amount
+                if(amount <= this.#balance) {
+                    this.#balance -= amount
                     console.log(`${this.owner}님, ${amount}원 출금되었습니다.`)
                 } else {
                     console.log("잔액이 부족합니다.")
