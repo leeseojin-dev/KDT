@@ -1,0 +1,5 @@
+# venv 폴더 무시
+./venv/
+./1st_test_online_store/result_images/
+./1st_test_online_store/databases/result_images/
+./1st_test_online_store/__pycache__
