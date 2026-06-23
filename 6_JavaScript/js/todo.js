@@ -25,16 +25,31 @@ function render() {
             render()
         })
 
-
         const text = document.createElement("span")     // <span></span>
         text.className = "todo-text"        // <span class="todo-text"></span>
         text.textContent = todo.text        // <span class="todo-text">아침식사</span>
 
+        const delBtn = document.createElement("button")
+        delBtn.className = "delete-btn"
+        delBtn.type = "button"
+        delBtn.textContent = "삭제"
+        delBtn.addEventListener("click", () => {
+            todos.splice(index, 1)      // splice(): 자기 인덱스부터 1개만 지워줘
+            render()
+        })
+        
         left.appendChild(checkbox)
         left.appendChild(text)
+        left.appendChild(delBtn)
+
         li.appendChild(left)
         todoList.appendChild(li)
     })
+    updateCounts()
+}
+
+function updateCounts() {
+    
 }
 
 function addTodo() {

@@ -73,7 +73,6 @@ ul {
 li {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     gap: 10px;
     padding: 10px 0;
     border-bottom: 1px solid #000;
@@ -81,15 +80,22 @@ li {
 
 .left {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     gap: 10px;
     flex: 1;
+    min-width: 0;
 }
 
 .todo-text {
     overflow: hidden;               /* 칸에 글자가 다 들어오지 않으면 가려줘 */
     text-overflow: ellipsis;        /* 칸에 글자가 다 들어오지 않으면 가려주고 ...으로 표시 */
     white-space: nowrap;            /* 칸에 글자가 다 들어오지 않아도 줄바꿈 없이 가로로 쭉 작성 */
+    flex: 1;
+}
+
+.delete-btn {
+    white-space: nowrap;
 }
 
 .done .todo-text {
