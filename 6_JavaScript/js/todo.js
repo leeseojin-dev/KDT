@@ -49,7 +49,10 @@ function render() {
 }
 
 function updateCounts() {
-    
+    const total = todos.length
+    const remaining = todos.filter((t) => !t.done).length
+    totalCount.textContent = String(total)
+    remainingCount.textContent = String(remaining)
 }
 
 function addTodo() {
