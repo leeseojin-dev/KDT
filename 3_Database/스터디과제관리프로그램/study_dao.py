@@ -54,7 +54,7 @@ class StudyDAO:
         try:
             cur = db.cursor(MySQLdb.cursors.DictCursor)
             sql = "select * from subjects where subject_id = %s"
-            cur.execute(sql, (subject_id))
+            cur.execute(sql, (subject_id,))
             row = cur.fetchone()
             cur.close()
             return row
