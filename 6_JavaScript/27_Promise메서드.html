@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise 메서드</title>
+    <script>
+        /*
+            Promise.all([p1, p2, p3])           // 비동기 작업들
+                .then(results => {              // 여러 개가 병렬 처리되어 결과를 받아서 results(복수)라고 이름을 지음
+                    console.log(results)
+                })
+            - 모든 Promise가 성공해야 then을 실행
+            - 하나라도 실패하면 catch를 실행
+            - 병렬 처리용
+            
+            Promise.race([p1, p2])
+                .then(result => console.log(result))    // 먼저 처리된 것만 받아서 result(단수)라고 이름을 지음
+            - 가장 먼저 완료된 Promise 하나의 결과를 사용
+            - 성공/실패 상관없이 먼저 끝난 것을 기준
+
+            Promise.allSettled([p1, p2])
+                .then(results => console.log(results))
+            - 모든 Promise의 성공/실패 결과를 모두 반환
+            - 실패해도 중단되지 않음 (실패사유까지 출력됨)
+            - (잘 사용은 안하지만, 디버그용으로 종종 사용)
+
+            Promise.any([p1, p2, p3])       // 비동기 작업들 중 하나만
+                .then(result => console.log(result))
+                .catch(err => console.log(err))
+            - 하나라도 성공하면 then 실행
+            - 모두 실패해면 catch 실행
+            
+        */
+    </script>
+</head>
+<body>
+    <script>
+        function getApple() {
+            return new Promise((resolve) => {       // 하나만 구현하면 성공했을 때만 구현한다는 의미
+                setTimeout(() => {
+                    resolve('🍎')
+                }, 3000)
+            })
+        }
+
+        function getBanana() {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve('🍌')
+                }, 1000)
+            })
+        }
+        
+        function getOrange() {
+            return new Promise.reject(new Error("오렌지 없음"))
+        }
+
+        // 순차 처리 (Promise 체이닝: Promise 객체를 연결해서 사용하는 것)
+        getBanana().then((banana) => getApple().then((apple) => [banana, apple]))
+            .then(console.log)      // 지금 들고 있는 반환값을 찍어달라는 의미
+
+        // 병렬 처리 (하나라도 실패하면 전체 실패) Promise.all()
+        Promise.all([getBanana(), getApple()])
+            .then((fruits) => console.log('all', fruits))       // fruits 변수에 담아와서 출력
+
+        // Promise.all([getBanana(), getApple(), getOrange()])  // Orange 때문에 에러
+        //     .then((fruits) => console.log('all', fruits))
+
+        // Promise.race() : 가장 빨리 수행된 것이 실행
+        Promise.race([getBanana(), getApple()])
+            .then((fruits) => console.log('race', fruits))
+
+        // Promise.allSettled() : 여러 프로미스를 병렬로 처리하되 하나의 프로미스가 실패해도 무조건 실행
+        Promise.allSettled([getBanana(), getApple(), getOrange()])
+            .then((fruits) => console.log('allSettled', fruits))
+            .catch(console.log)
+    </script>
+</body>
+</html>
