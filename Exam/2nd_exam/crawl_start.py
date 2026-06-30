@@ -29,11 +29,10 @@ def crawl_start(keyword, n1, n2, n3):
     print(f"aladin 크롤링 시간: {aladin_time}초")
     print(f"전체 크롤링 시간: {yes24_time + kyobo_time + aladin_time}초")
 
-    with pd.ExcelWriter(f"crawling_{keyword}_search_list.xlsx", mode='w') as writer:
+    with pd.ExcelWriter(path=f"crawling_{keyword}_search_list.xlsx", mode='w') as writer:
         yes24_data.to_excel(writer, sheet_name="yes24", index=False)
         kyobo_data.to_excel(writer, sheet_name="kyobo", index=False)
         aladin_data.to_excel(writer, sheet_name="aladin", index=False)
 
     print(f"crawling_{keyword}_search_list.xlsx 명으로 엑셀 저장 완료!")
-
-crawl_start("sqld", 2, 2, 1)
+    
