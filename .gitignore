@@ -1,6 +1,10 @@
 # venv 폴더 무시
 venv/
+node_modules/
+__pycache__/
+*.pyc
+
 ./1st_test_online_store/result_images/
 ./1st_test_online_store/databases/result_images/
-__pycache__/
-node_modules/
+
+images/
