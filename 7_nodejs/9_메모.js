@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require("express")
 const path = require("path")
 const { MongoClient, ObjectId, ReturnDocument } = require("mongodb")
@@ -9,7 +11,7 @@ const PORT = 3000
 app.use(express.json())
 app.use(express.static(path.join(__dirname, "public")))
 
-const url = "mongodb+srv://<userid>:<password>@cluster0.ibgmpwa.mongodb.net/"
+const url = process.env.MONGO_URL;
 const client = new MongoClient(url)
 
 const dbName = "memo"
