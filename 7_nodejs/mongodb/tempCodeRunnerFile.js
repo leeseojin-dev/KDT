@@ -1,0 +1,1 @@
+db.students.find({ name: "김사과" })
