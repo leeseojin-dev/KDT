@@ -9,7 +9,7 @@ const PORT = 3000
 app.use(express.json())
 app.use(express.static(path.join(__dirname, "public")))
 
-const url = "mongodb+srv://dltjwls5669:m9irVeRALFPoCMGh@cluster0.ibgmpwa.mongodb.net/"
+const url = "mongodb+srv://<userid>:<password>@cluster0.ibgmpwa.mongodb.net/"
 const client = new MongoClient(url)
 
 const dbName = "memo"
