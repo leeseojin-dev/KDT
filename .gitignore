@@ -8,6 +8,6 @@ __pycache__/
 ./1st_test_online_store/databases/result_images/
 
 images/
-*.env
+.env
 
 X_Project/
