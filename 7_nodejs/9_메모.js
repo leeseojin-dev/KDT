@@ -1,5 +1,3 @@
-require('dotenv').config();
-
 const express = require("express")
 const path = require("path")
 const { MongoClient, ObjectId, ReturnDocument } = require("mongodb")
@@ -11,7 +9,7 @@ const PORT = 3000
 app.use(express.json())
 app.use(express.static(path.join(__dirname, "public")))
 
-const url = process.env.MONGO_URL;
+const url = "mongodb+srv://dltjwls5669:uxw74fHcxlucgHdk@cluster0.ibgmpwa.mongodb.net/"
 const client = new MongoClient(url)
 
 const dbName = "memo"
@@ -112,7 +110,7 @@ app.post("/memo", async(req, res) => {
 app.put("/memos/:id", async(req, res) => {
     try{
         const { id } = req.params
-        const { text } = req. body
+        const { text } = req.body
 
         // id가 MongoDB ObjectId 형식인지 검사하고 아니면 400에러 반환
         if(!ObjectId.isValid(id)) {
